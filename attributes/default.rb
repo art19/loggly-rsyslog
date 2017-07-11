@@ -1,3 +1,5 @@
+default['loggly']['enabled'] = true
+
 default['loggly']['tags'] = []
 
 default['loggly']['log_files'] = []
