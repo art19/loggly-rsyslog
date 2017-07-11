@@ -2,9 +2,9 @@ require 'bundler/setup'
 require 'rspec/core/rake_task'
 
 namespace :style do
-  #require 'rubocop/rake_task'
-  #desc 'Run Ruby style checks'
-  #Rubocop::RakeTask.new(:ruby)
+  # require 'rubocop/rake_task'
+  # desc 'Run Ruby style checks'
+  # Rubocop::RakeTask.new(:ruby)
 
   require 'foodcritic'
   desc 'Run Chef style checks'
@@ -22,7 +22,7 @@ RSpec::Core::RakeTask.new(:unit) do |t|
 end
 
 desc 'Run all tests'
-task :test => [:unit]
+task test: [:unit]
 
 # The default rake task should just run it all
-task default: [:style, :test]
+task default: %i[style test]
