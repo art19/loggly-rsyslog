@@ -19,7 +19,7 @@ describe 'loggly-rsyslog::tls' do
     expect(chef_run).to create_directory('/etc/rsyslog.d/keys/ca.d').with(
       owner: 'root',
       group: 'syslog',
-      mode: 0755
+      mode: '0755'
     )
   end
 
@@ -29,19 +29,18 @@ describe 'loggly-rsyslog::tls' do
 
   it 'downloads the certifcates' do
     expect(chef_run).to create_remote_file('download intermediate cert').with(
-      path: "/var/chef/cache/sf_bundle.crt"
+      path: '/var/chef/cache/sf_bundle.crt'
     )
     expect(chef_run).to create_remote_file('download loggly.com cert').with(
-      path: "/var/chef/cache/loggly.com.crt"
+      path: '/var/chef/cache/loggly.com.crt'
     )
   end
 
   it 'creates the loggly certificate' do
     expect(chef_run).to run_bash('bundle certificate')
   end
-  
-  it 'loads the imfile module when log directories are not empty' do
-    skip("Need to figure out stubbing of File.exists? as it used in many places inside Chef")
-  end
 
+  it 'loads the imfile module when log directories are not empty' do
+    skip('Need to figure out stubbing of File.exists? as it used in many places inside Chef')
+  end
 end
