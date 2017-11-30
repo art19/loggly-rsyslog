@@ -8,6 +8,8 @@
 #
 
 package 'rsyslog-gnutls' do
+  version '8.26.0-1.el6'
+
   action :install
 end
 
