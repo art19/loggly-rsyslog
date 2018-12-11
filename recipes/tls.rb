@@ -12,7 +12,7 @@ package 'rsyslog-gnutls' do
 end
 
 cert_path = node['loggly']['tls']['cert_path']
-rsyslog_group = platform_family?('rhel') ? 'adm' : 'syslog'
+rsyslog_group = platform_family?('rhel', 'amazon') ? 'adm' : 'syslog'
 
 directory cert_path do
   owner 'root'
