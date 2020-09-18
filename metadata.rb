@@ -8,4 +8,4 @@ version          '2.1.1'
 
 supports 'ubuntu', '>= 12.04'
 
-depends 'rsyslog', '~> 1.15.0'
+depends 'rsyslog', '>= 1.15.0'
